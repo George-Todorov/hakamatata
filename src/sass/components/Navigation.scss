@@ -1,0 +1,14 @@
+#app-wrapper nav {
+    background-color: $light-blue;
+    ul {  
+        .nav-link {
+            color: $light;
+            text-align: center;
+            font-weight: bold;
+
+            &:hover {
+                color: $orange;
+            }
+        }
+    }   
+}
