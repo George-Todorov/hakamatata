@@ -1,4 +1,4 @@
-#app-wrapper .main-content {  
+#app-wrapper .main-content { 
     min-height: 500px;  
 
     .view-wrapper {
@@ -8,6 +8,10 @@
 
         .lessons-wrapper {
             padding-left: 22px;
+        }
+
+        .tests-wrapper {
+            padding-left: 41px;
         }
     }
 }

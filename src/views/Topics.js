@@ -6,7 +6,7 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-import MathTest from "../components/MathTest";
+import TestRoute from "../components/TestRoute";
 
 const Topics = () => {
     let match = useRouteMatch();
@@ -15,11 +15,11 @@ const Topics = () => {
       <main className="view-wrapper">
         <h2 className="title">ТЕСТОВЕ</h2>
   
-        <ul>
-          <li>
+        <ul className="tests-wrapper">
+          <li className="test-title">
             <Link to={`${match.url}/math-4`}>Математика - 4. клас</Link>
           </li>
-          <li>
+          <li className="test-title">
             <Link to={`${match.url}/math-7`}>Математика - 7. клас</Link>
           </li>
         </ul>
@@ -38,7 +38,7 @@ const Topics = () => {
 
   function Topic() {
     let { topicId } = useParams();
-    return MathTest(topicId);
+    return TestRoute(topicId);
   }
 
   export default Topics;
