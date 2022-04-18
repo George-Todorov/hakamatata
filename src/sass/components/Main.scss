@@ -2,8 +2,12 @@
     min-height: 500px;  
 
     .view-wrapper {
-        h2 {
+        * {
             text-align: center;
+        }
+
+        section *, ul li {
+            text-align: left;
         }
 
         .lessons-wrapper {
@@ -12,6 +16,29 @@
 
         .tests-wrapper {
             padding-left: 41px;
+        }
+
+        .math-test {
+            nav .question-btn, #start-btn, #finish-btn {
+                color: white;
+                font-weight: bolder;
+            }
+            #start-btn, #finish-btn {
+                width: 90px;
+                height: 30px;
+                border: 1px solid silver;
+                border-radius: 15px;
+            }
+            #start-btn {
+                background-color: rgb(70, 172, 70);
+            }
+            #finish-btn {
+                background-color: rgb(192, 100, 100);
+            }
+            nav .question-btn {
+                width: 9%;
+                background-color: $light-blue;
+            }
         }
     }
 }

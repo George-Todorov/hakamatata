@@ -7,30 +7,35 @@ const TestMathObj = {
     "endTime": "",
     "questionsNumber": 20,
     "questionList": [
-        {
-            "number": 1,
-            "text": "",
-            "image": "",
-            "answers": {
-                "a": "",
-                "b": "",
-                "c": "",
-                "d": "",
-            },
-            "rightAnswer": ""
-        }
     ],
 }
 
 const TestRoute = test => {
+    for(let i = 0; i < 20; i++) {
+        TestMathObj.questionList.push({
+            "number": i + 1,
+            "image": "",
+            "task": "",
+            "answers": {
+                "a": "",
+                "b": "",
+                "c": "",
+                "d": ""
+            },
+            "rightAnswer": ""
+        });
+    }
+
     switch (test) {
         case "math-4":
+            TestMathObj["name"] = "Математика - 4. клас"
             return (
                 <main className="math-test-wrapper">
                     <TestMath testObj={TestMathObj} />
                 </main>
             );
         case "math-7":
+            TestMathObj["name"] = "Математика - 7. клас"
             return (
                 <main className="math-test-wrapper">
                     <TestMath testObj={TestMathObj} />

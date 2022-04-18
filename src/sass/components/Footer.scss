@@ -1,6 +1,11 @@
 #app-wrapper .footer {
+    background-color: white;;
     border-top: 5px solid $dark-blue;
     padding-top: 2px;
+
+    .logo {
+        padding-left: 16px;
+    }
 
     .zita-link {
         padding-top: 20px;

@@ -28,9 +28,9 @@ const Topics = () => {
           <Route path={`${match.path}/:topicId`}>
             <Topic />
           </Route>
-          <Route path={match.path}>
-            
-          </Route>
+          {/* <Route path={match.path}>
+            <h3>20 задачи за 60 минути</h3>
+          </Route> */}
         </Switch>
     </main>
     );
