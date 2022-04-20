@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as actionCreator from "../redux/actions";
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import { CountdownCircleTimer, useCountdown } from 'react-countdown-circle-timer'
 
 class TestMath extends Component {
   constructor(props) {
@@ -42,16 +42,36 @@ class TestMath extends Component {
           return <button key={obj.number} id={obj.number} className="question-btn" onClick={this.onChangeQuestion}>{obj.number}</button>
         })}
       </nav>
-      
-      <br />
 
       <main className="current-question">
-        {this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number}
+        <h4>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number}. задача</h4>
+        <img src={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].taskImage} alt={"Task-"+this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number} width="340px"/>
+        <br />
       </main>
 
       <footer className="answers">
-
+        <div className="container-flex-row">
+          <div className="check-box flex-item-1">
+            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-a"} />
+            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-a"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["a"]}</label>
+          </div>
+          <div className="check-box flex-item-1">
+            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-b"} />
+            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-b"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["b"]}</label>
+          </div>
+        </div>
+        <div className="container-flex-row">
+          <div className="check-box flex-item-1">
+            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-c"} />
+            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-c"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["c"]}</label>
+          </div>
+          <div className="check-box flex-item-1">
+            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-d"} />
+            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-d"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["d"]}</label>
+          </div>
+        </div>
       </footer>
+      <br />
     </main>
   }
 
@@ -64,6 +84,9 @@ class TestMath extends Component {
     this.setState({
       isTestStarted: true
     });
+
+    document.getElementById("main-nav").style.display = "none";
+    document.getElementById("test-links").style.display = "none";
 
     setInterval(() => {
       sec--;
@@ -85,6 +108,12 @@ class TestMath extends Component {
 
   finishTest() {
     let date = new Date();
+    this.props.onChangeTestFinished(); 
+    this.setState({
+      isTestFinished: true
+    });
+    document.getElementById("main-nav").style.display = "inherit";
+    document.getElementById("test-links").style.display = "inherit";
     this.props.history.push('/results');
   }
 
@@ -97,17 +126,16 @@ class TestMath extends Component {
         <h3>20 задачи за 60 минути</h3>
       
         <header className="timer container-flex-row">
-          <h3 className="flex-item-3">
+          <h3 className="flex-item-6">
             {
               !this.state.isTestStarted ? 
               <button className="test-btn" id="start-btn" onClick={this.startTest}>START</button> : 
               <button className="test-btn" id="finish-btn" onClick={this.finishTest}>FINISH</button>
             }
           </h3>
-          <h3 className="flex-item-1">
-            {this.state.isTestStarted ? 
+          <h3 className="flex-item-1" style={{padding: "30px"}}>
             <CountdownCircleTimer
-              isPlaying
+              isPlaying={this.state.isTestStarted}
               duration={this.num*this.num}
               colors={['#ed8035']}
             >
@@ -125,34 +153,12 @@ class TestMath extends Component {
 
                 return `${minutes} : ${seconds}`
               }}
-            </CountdownCircleTimer> : 
-            
-            <CountdownCircleTimer
-              duration={this.num*this.num}
-              colors={['#ed8035']}
-            >
-              {({ remainingTime }) => {
-                let minutes = Math.floor(remainingTime / this.num)
-                let seconds = remainingTime % this.num
-
-                if(minutes < 10) {
-                  minutes = "0" + minutes
-                }
-                
-                if(seconds < 10) {
-                  seconds = "0" + seconds
-                }
-
-                return `${minutes} : ${seconds}`
-              }}
-            </CountdownCircleTimer>}
+            </CountdownCircleTimer>
           </h3>
           <h3 className="flex-item-1">
             
           </h3>
         </header>
-
-        <hr />
 
         {this.state.isTestStarted ? this.getQuestions() : ""}
     </article>

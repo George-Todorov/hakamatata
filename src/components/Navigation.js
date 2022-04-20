@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <nav className="main-nav">
+    <nav id="main-nav" className="main-nav">
         <ul className="container-flex-row">
             <li className="flex-item-1">
                 <Link to="/" className="flex-item-1 nav-link">УРОЦИ</Link>
             </li>
-            {/* <li className="flex-item-1">
-                <Link to="/about" className="flex-item-1 nav-link">ЗА НАС</Link>
-            </li> */}
             <li className="flex-item-1">
                 <Link to="/topics" className="flex-item-1 nav-link">ТЕСТОВЕ</Link>
             </li>

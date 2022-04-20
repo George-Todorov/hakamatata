@@ -3,12 +3,13 @@
     border-top: 5px solid $dark-blue;
     padding-top: 2px;
 
-    .logo {
+    .logo, .support {
         padding-left: 16px;
     }
 
     .zita-link {
         padding-top: 20px;
+        padding-right: 16px;
         font-size: 1.5em;
     }
 }

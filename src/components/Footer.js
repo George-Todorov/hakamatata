@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png";
 const Footer = () => {
   return (
     <footer className="footer">
-      <h3>С подкрепата на :</h3>
+      <h3 className="support">С подкрепата на :</h3>
 
       <main className="container-flex-row">
         <section className="logo flex-item-1">

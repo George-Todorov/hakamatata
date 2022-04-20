@@ -1,5 +1,6 @@
 import React from "react";
 import TestMath from "./TestMath";
+import { TaskOne } from "../data/tasks/TaskOne";
 
 const TestMathObj = {
     "rules": "20 задачи за 60 минути",
@@ -11,11 +12,14 @@ const TestMathObj = {
 }
 
 const TestRoute = test => {
-    for(let i = 0; i < 20; i++) {
+    TestMathObj.questionList = [];
+    let taskIndex = getRandomInt(3);
+    TestMathObj.questionList.push(TaskOne[taskIndex])
+    
+    for(let i = 1; i < 20; i++) {
         TestMathObj.questionList.push({
             "number": i + 1,
-            "image": "",
-            "task": "",
+            "taskImage": "",
             "answers": {
                 "a": "",
                 "b": "",
@@ -48,6 +52,10 @@ const TestRoute = test => {
                 </main>
             );
     }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
 export default TestRoute;

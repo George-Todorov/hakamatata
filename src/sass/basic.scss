@@ -16,7 +16,8 @@ iframe::-webkit-scrollbar-track {
 body {
     margin: 0;
     padding: 0;
-    background-color: $main-bg;
+    //background-color: $body-bg;
+    background-color: $main-bg;;
     font-family: sans-serif;
     color: $dark-blue;
 
@@ -32,6 +33,7 @@ body {
         text-decoration: none;
         overflow: hidden;
         color: $dark-blue;
+        font-weight: bolder;
 
         &:hover {
             color: $orange;

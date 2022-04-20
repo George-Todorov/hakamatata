@@ -1,4 +1,5 @@
 #app-wrapper .main-content { 
+    //background-color: white;
     min-height: 500px;  
 
     .view-wrapper {
@@ -19,6 +20,7 @@
         }
 
         .math-test {
+            background-color: white;
             nav .question-btn, #start-btn, #finish-btn {
                 color: white;
                 font-weight: bolder;
@@ -36,8 +38,22 @@
                 background-color: rgb(192, 100, 100);
             }
             nav .question-btn {
-                width: 9%;
+                width: 35px;
                 background-color: $light-blue;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .questions-wrapper {
+                .answers div {
+                    padding-left: 5px;
+
+                    .check-box{
+                        text-align: left;
+                        font-size: 1em;
+                    }
+                } 
             }
         }
     }
