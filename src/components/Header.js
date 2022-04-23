@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/logo-h.png";
+import Logo from "../assets/logo.png";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
 
       </section>
       <section className="logo flex-item-1">
-        <img src={Logo} alt="Logo" width="100px"/>
+        <img src={Logo} alt="Logo" width="65px"/>
       </section>
       <section className="flex-item-2">
         

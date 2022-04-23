@@ -5,11 +5,35 @@ import { connect } from "react-redux";
 import * as actionCreator from "../redux/actions";
 import { CountdownCircleTimer, useCountdown } from 'react-countdown-circle-timer'
 
+const ANSWERS = {
+  "1": "",
+  "2": "",
+  "3": "",
+  "4": "",
+  "5": "",
+  "6": "",
+  "7": "",
+  "8": "",
+  "9": "",
+  "10": "",
+  "11": "",
+  "12": "",
+  "13": "",
+  "14": "",
+  "15": "",
+  "16": "",
+  "17": "",
+  "18": "",
+  "19": "",
+  "20": "",
+}
+
 class TestMath extends Component {
   constructor(props) {
     super(props);
 
     this.num = 60;
+    this.test = this.props.testObj;
 
     this.state = {
       isTestStarted: false,
@@ -23,12 +47,66 @@ class TestMath extends Component {
     this.startTest = this.startTest.bind(this);
     this.finishTest = this.finishTest.bind(this);
     this.onChangeQuestion = this.onChangeQuestion.bind(this);
+    this.onAnswerClicked = this.onAnswerClicked.bind(this);
+  }
+
+  onAnswerClicked(e) {
+    const btnA = document.getElementById("a");
+    const btnB = document.getElementById("b");
+    const btnC = document.getElementById("c");
+    const btnD = document.getElementById("d");
+
+    let btnId = e.target.id;
+    ANSWERS[this.state.currentQuestionNumber] = btnId;
+    console.log(this.state.currentQuestionNumber + ' - ' + btnId);
+    switch(btnId) {
+      case "a": 
+        btnA.style.border = "3px solid green";
+        btnB.style.border = "2px solid silver";
+        btnC.style.border = "2px solid silver";
+        btnD.style.border = "2px solid silver";
+        break;
+      case "b": 
+        btnB.style.border = "3px solid green";
+        btnA.style.border = "2px solid silver";
+        btnC.style.border = "2px solid silver";
+        btnD.style.border = "2px solid silver";
+        break;
+      case "c": 
+        btnC.style.border = "3px solid green";
+        btnA.style.border = "2px solid silver";
+        btnB.style.border = "2px solid silver";
+        btnD.style.border = "2px solid silver";
+        break;
+      case "d": 
+        btnD.style.border = "3px solid green";
+        btnA.style.border = "2px solid silver";
+        btnB.style.border = "2px solid silver";
+        btnC.style.border = "2px solid silver";
+        break;
+      default: break;
+    }
   }
 
   onChangeQuestion(e) {
     this.setState({
       currentQuestionNumber: e.target.id
     });
+
+    const btnA = document.getElementById("a");
+    const btnB = document.getElementById("b");
+    const btnC = document.getElementById("c");
+    const btnD = document.getElementById("d");
+
+    btnA.style.border = "2px solid silver";
+    btnB.style.border = "2px solid silver";
+    btnC.style.border = "2px solid silver";
+    btnD.style.border = "2px solid silver";
+
+    if(ANSWERS[e.target.id] !== "") {
+      document.getElementById(ANSWERS[e.target.id]).style.border = "3px solid green";
+    }
+
   }
   
   getQuestions() {
@@ -44,31 +122,19 @@ class TestMath extends Component {
       </nav>
 
       <main className="current-question">
-        <h4>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number}. задача</h4>
         <img src={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].taskImage} alt={"Task-"+this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number} width="340px"/>
-        <br />
+        {/* <br /> */}
       </main>
 
       <footer className="answers">
-        <div className="container-flex-row">
-          <div className="check-box flex-item-1">
-            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-a"} />
-            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-a"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["a"]}</label>
-          </div>
-          <div className="check-box flex-item-1">
-            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-b"} />
-            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-b"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["b"]}</label>
-          </div>
+        {/* <h4>Избери</h4> */}
+        <div className="answers-wrapper container-flex-row">
+          <button id="a" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>а</button>
+          <button id="b" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>б</button>
         </div>
-        <div className="container-flex-row">
-          <div className="check-box flex-item-1">
-            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-c"} />
-            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-c"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["c"]}</label>
-          </div>
-          <div className="check-box flex-item-1">
-            <input type="checkbox" name={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-d"} />
-            <label for={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number+"-d"}>{this.props.testObj.questionList[this.state.currentQuestionNumber - 1].answers["d"]}</label>
-          </div>
+        <div className="answers-wrapper container-flex-row">
+          <button id="c" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>в</button>
+          <button id="d" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>г</button>
         </div>
       </footer>
       <br />
@@ -110,6 +176,7 @@ class TestMath extends Component {
     let date = new Date();
     this.props.onChangeTestFinished(); 
     this.setState({
+      isTestStarted: false,
       isTestFinished: true
     });
     document.getElementById("main-nav").style.display = "inherit";
@@ -124,20 +191,26 @@ class TestMath extends Component {
         
         <h2>{this.props.testObj.name}</h2>
         <h3>20 задачи за 60 минути</h3>
+        <h3>5 точки за всеки верен отговор</h3>
+        <h3>100 възможни точки общо</h3>
       
         <header className="timer container-flex-row">
           <h3 className="flex-item-6">
             {
               !this.state.isTestStarted ? 
-              <button className="test-btn" id="start-btn" onClick={this.startTest}>START</button> : 
-              <button className="test-btn" id="finish-btn" onClick={this.finishTest}>FINISH</button>
+              <button className="test-btn" id="start-btn" onClick={this.startTest}>НАЧАЛО</button> : 
+              <button className="test-btn" id="finish-btn" onClick={this.finishTest}>КРАЙ</button>
             }
           </h3>
           <h3 className="flex-item-1" style={{padding: "30px"}}>
             <CountdownCircleTimer
               isPlaying={this.state.isTestStarted}
               duration={this.num*this.num}
-              colors={['#ed8035']}
+              colors={["#f4a232"]}
+              onComplete={() => {
+                this.finishTest();
+                return true;
+              }}
             >
               {({ remainingTime }) => {
                 let minutes = Math.floor(remainingTime / this.num)

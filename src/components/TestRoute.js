@@ -1,37 +1,41 @@
 import React from "react";
 import TestMath from "./TestMath";
-import { TaskOne } from "../data/tasks/TaskOne";
+import { TaskData } from "../data/tasks/TaskData";
 
 const TestMathObj = {
-    "rules": "20 задачи за 60 минути",
-    "startTime": "",
-    "endTime": "",
-    "questionsNumber": 20,
-    "questionList": [
+    startTime: "",
+    endTime: "",
+    questionsCount: 20,
+    questionList: [
     ],
 }
 
-const TestRoute = test => {
+const SetQuestions = (num) => {
     TestMathObj.questionList = [];
-    let taskIndex = getRandomInt(3);
-    TestMathObj.questionList.push(TaskOne[taskIndex])
-    
-    for(let i = 1; i < 20; i++) {
-        TestMathObj.questionList.push({
-            "number": i + 1,
-            "taskImage": "",
-            "answers": {
-                "a": "",
-                "b": "",
-                "c": "",
-                "d": ""
-            },
-            "rightAnswer": ""
-        });
-    }
 
+    for(let i = 0; i < 20; i++) {
+        let data = TaskData[num];
+        let taskCount = data[i].length;
+
+        if(taskCount > 0) {
+            let taskIndex = getRandomInt(taskCount);
+            TestMathObj.questionList.push(data[i][taskIndex])
+        } 
+        else {
+            TestMathObj.questionList.push({
+                "number": i + 1,
+                "taskImage": "",
+                "rightAnswer": "",
+                "userAnswer": ""
+            });
+        }
+    }
+}
+
+const TestRoute = test => {
     switch (test) {
         case "math-4":
+            SetQuestions(4);
             TestMathObj["name"] = "Математика - 4. клас"
             return (
                 <main className="math-test-wrapper">
@@ -39,6 +43,7 @@ const TestRoute = test => {
                 </main>
             );
         case "math-7":
+            SetQuestions(7);
             TestMathObj["name"] = "Математика - 7. клас"
             return (
                 <main className="math-test-wrapper">

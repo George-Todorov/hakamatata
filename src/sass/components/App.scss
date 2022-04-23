@@ -5,8 +5,8 @@
     box-shadow: 2px 2px 2px 2px grey;
 }
 
-@media (min-width: 380px) {
+@media (min-width: 460px) {
     #app-wrapper {
-        width: 360px;
+        width: 360px; //60%;
     }
 }

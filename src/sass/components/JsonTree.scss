@@ -22,11 +22,13 @@ ul, #ul-tree {
     color: $dark-blue;
     display: inline-block;
     margin-right: 6px;
+    font-size: 22px;
 }
 
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
 .caret-down::before {
     transform: rotate(90deg);
+    color: $orange;
 }
 
 /* Hide the nested list */

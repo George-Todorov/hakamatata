@@ -11,8 +11,12 @@
             text-align: left;
         }
 
+        .mon {
+            margin-left: 35px;
+        }
+
         .lessons-wrapper {
-            padding-left: 22px;
+            padding-left: 12px;
         }
 
         .tests-wrapper {
@@ -25,18 +29,24 @@
                 color: white;
                 font-weight: bolder;
             }
+
             #start-btn, #finish-btn {
                 width: 90px;
                 height: 30px;
                 border: 1px solid silver;
                 border-radius: 15px;
             }
-            #start-btn {
-                background-color: rgb(70, 172, 70);
+
+            h3 {
+                padding-left: 30px;
+                #start-btn {
+                    background-color: $green;
+                }
+                #finish-btn {
+                    background-color: $red;
+                }
             }
-            #finish-btn {
-                background-color: rgb(192, 100, 100);
-            }
+
             nav .question-btn {
                 width: 35px;
                 background-color: $light-blue;
@@ -46,14 +56,24 @@
             }
 
             .questions-wrapper {
-                .answers div {
-                    padding-left: 5px;
+                .answers {
+                    .answers-wrapper {
+                        padding: 5px;
 
-                    .check-box{
-                        text-align: left;
-                        font-size: 1em;
+                        .answer-btn {
+                            border: 2px solid silver;
+                            border-radius: 20px;
+                            margin: 0 22px 0 22px;
+                            font-size: 1.1em;
+                            font-weight: bolder;
+                            color: $light-blue;
+
+                            &:hover {
+                                background-color: rgba(73,104,142, 0.2);
+                            }
+                        }
                     }
-                } 
+                }  
             }
         }
     }
