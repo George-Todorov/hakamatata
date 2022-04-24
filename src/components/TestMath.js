@@ -3,29 +3,41 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as actionCreator from "../redux/actions";
-import { CountdownCircleTimer, useCountdown } from 'react-countdown-circle-timer'
+import { CountdownCircleTimer, useCountdown } from "react-countdown-circle-timer";
 
-const ANSWERS = {
-  "1": "",
-  "2": "",
-  "3": "",
-  "4": "",
-  "5": "",
-  "6": "",
-  "7": "",
-  "8": "",
-  "9": "",
-  "10": "",
-  "11": "",
-  "12": "",
-  "13": "",
-  "14": "",
-  "15": "",
-  "16": "",
-  "17": "",
-  "18": "",
-  "19": "",
-  "20": "",
+const CurrentTest = {
+  Name: "",
+  StartedTime: "",
+  FinishedTime: "",
+  Questions: [],
+  Answers: {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "7": "",
+    "8": "",
+    "9": "",
+    "10": "",
+    "11": "",
+    "12": "",
+    "13": "",
+    "14": "",
+    "15": "",
+    "16": "",
+    "17": "",
+    "18": "",
+    "19": "",
+    "20": "",
+  }
+};
+
+let LocalUser = {
+  HasStartedTest: false,
+  History: [],
+  LastTest: CurrentTest
 }
 
 class TestMath extends Component {
@@ -50,6 +62,10 @@ class TestMath extends Component {
     this.onAnswerClicked = this.onAnswerClicked.bind(this);
   }
 
+  componentDidMount() {
+    LocalUser.LastTest.Questions = this.props.testObj.questionList; 
+  }
+
   onAnswerClicked(e) {
     const btnA = document.getElementById("a");
     const btnB = document.getElementById("b");
@@ -57,8 +73,9 @@ class TestMath extends Component {
     const btnD = document.getElementById("d");
 
     let btnId = e.target.id;
-    ANSWERS[this.state.currentQuestionNumber] = btnId;
-    console.log(this.state.currentQuestionNumber + ' - ' + btnId);
+    LocalUser.LastTest.Answers[this.state.currentQuestionNumber] = btnId;
+    localStorage.setItem("hakamatata-user", JSON.stringify(LocalUser));
+    
     switch(btnId) {
       case "a": 
         btnA.style.border = "3px solid green";
@@ -103,8 +120,8 @@ class TestMath extends Component {
     btnC.style.border = "2px solid silver";
     btnD.style.border = "2px solid silver";
 
-    if(ANSWERS[e.target.id] !== "") {
-      document.getElementById(ANSWERS[e.target.id]).style.border = "3px solid green";
+    if(LocalUser.LastTest.Answers[e.target.id] !== "") {
+      document.getElementById(LocalUser.LastTest.Answers[e.target.id]).style.border = "3px solid green";
     }
 
   }
@@ -131,8 +148,8 @@ class TestMath extends Component {
         <div className="answers-wrapper container-flex-row">
           <button id="a" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>а</button>
           <button id="b" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>б</button>
-        </div>
-        <div className="answers-wrapper container-flex-row">
+        {/* </div>
+        <div className="answers-wrapper container-flex-row"> */}
           <button id="c" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>в</button>
           <button id="d" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>г</button>
         </div>
@@ -145,6 +162,16 @@ class TestMath extends Component {
     let date = new Date();
     let min = this.num - 1;
     let sec = this.num;
+
+    if(localStorage.getItem("hakamatata-user")) {
+      LocalUser = JSON.parse(localStorage.getItem("hakamatata-user"));
+      LocalUser.LastTest = CurrentTest;
+    }
+    
+    LocalUser.HasStartedTest = true;
+    LocalUser.LastTest.StartedTime = date;
+    LocalUser.LastTest.Name = this.props.testObj.name;
+    localStorage.setItem("hakamatata-user", JSON.stringify(LocalUser));
 
     this.props.onChangeTestStarted(); 
     this.setState({
@@ -174,11 +201,39 @@ class TestMath extends Component {
 
   finishTest() {
     let date = new Date();
+    LocalUser.HasStartedTest = false;
+    LocalUser.LastTest.FinishedTime = date;
+
+    let historyObj = {
+      name: LocalUser.LastTest.Name,
+      date: LocalUser.LastTest.StartedTime,
+      startTime: (LocalUser.LastTest.StartedTime.getHours() < 10 ? 
+      "0" + LocalUser.LastTest.StartedTime.getHours() : 
+      LocalUser.LastTest.StartedTime.getHours()) + ":" + 
+      (LocalUser.LastTest.StartedTime.getMinutes() < 10 ? 
+      "0" + LocalUser.LastTest.StartedTime.getMinutes() :
+      LocalUser.LastTest.StartedTime.getMinutes()),
+      time: LocalUser.LastTest.FinishedTime - LocalUser.LastTest.StartedTime,
+      rightAnswers: 0,
+      points: 0
+    }
+
+    for (let i = 0; i < 20; i++) {
+      if(LocalUser.LastTest.Questions[i]["rightAnswer"] === LocalUser.LastTest.Answers[(i + 1).toString()]) {
+        historyObj.rightAnswers++;
+        historyObj.points += 5;
+      }
+    }
+
+    LocalUser.History.push(historyObj);
+    localStorage.setItem("hakamatata-user", JSON.stringify(LocalUser));
+
     this.props.onChangeTestFinished(); 
     this.setState({
       isTestStarted: false,
       isTestFinished: true
     });
+
     document.getElementById("main-nav").style.display = "inherit";
     document.getElementById("test-links").style.display = "inherit";
     this.props.history.push('/results');
@@ -208,8 +263,7 @@ class TestMath extends Component {
               duration={this.num*this.num}
               colors={["#f4a232"]}
               onComplete={() => {
-                this.finishTest();
-                return true;
+                return this.finishTest();
               }}
             >
               {({ remainingTime }) => {

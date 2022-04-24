@@ -10,29 +10,5 @@ export const TaskThree =  [
             "d": ""
         },
         "rightAnswer": ""
-    },
-    {
-        "number": 3,
-        "image": "",
-        "task": "",
-        "answers": {
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
-        },
-        "rightAnswer": ""
-    },
-    {
-        "number": 3,
-        "image": "",
-        "task": "",
-        "answers": {
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
-        },
-        "rightAnswer": ""
-    },
+    }
 ];
