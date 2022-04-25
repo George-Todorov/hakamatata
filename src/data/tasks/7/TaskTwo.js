@@ -4,7 +4,7 @@ export const TaskTwo =  [
     {
         "number": 2,
         "taskImage": TwoOne,
-        "rightAnswer": "c",
+        "rightAnswer": "a",
         "userAnswer": ""
     },
 ];

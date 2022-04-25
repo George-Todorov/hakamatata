@@ -1,14 +1,10 @@
+import ThreeOne from "../../../assets/tasks/three/31.png";
+
 export const TaskThree =  [
     {
         "number": 3,
-        "image": "",
-        "task": "",
-        "answers": {
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
-        },
-        "rightAnswer": ""
-    }
+        "taskImage": ThreeOne,
+        "rightAnswer": "c",
+        "userAnswer": ""
+    },
 ];

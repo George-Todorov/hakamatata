@@ -1,38 +1,10 @@
+import FourOne from "../../../assets/tasks/four/41.png";
+
 export const TaskFour =  [
     {
         "number": 4,
-        "image": "",
-        "task": "",
-        "answers": {
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
-        },
-        "rightAnswer": ""
-    },
-    {
-        "number": 4,
-        "image": "",
-        "task": "",
-        "answers": {
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
-        },
-        "rightAnswer": ""
-    },
-    {
-        "number": 4,
-        "image": "",
-        "task": "",
-        "answers": {
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
-        },
-        "rightAnswer": ""
+        "taskImage": FourOne,
+        "rightAnswer": "c",
+        "userAnswer": ""
     },
 ];

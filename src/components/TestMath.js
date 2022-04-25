@@ -71,6 +71,8 @@ class TestMath extends Component {
     const btnB = document.getElementById("b");
     const btnC = document.getElementById("c");
     const btnD = document.getElementById("d");
+    const btnQuestion = document.getElementById(this.state.currentQuestionNumber+"");
+    btnQuestion.style.backgroundColor = "#f4a232";
 
     let btnId = e.target.id;
     LocalUser.LastTest.Answers[this.state.currentQuestionNumber] = btnId;
@@ -78,25 +80,25 @@ class TestMath extends Component {
     
     switch(btnId) {
       case "a": 
-        btnA.style.border = "3px solid green";
+        btnA.style.border = "3px solid #f4a232";
         btnB.style.border = "2px solid silver";
         btnC.style.border = "2px solid silver";
         btnD.style.border = "2px solid silver";
         break;
       case "b": 
-        btnB.style.border = "3px solid green";
+        btnB.style.border = "3px solid #f4a232";
         btnA.style.border = "2px solid silver";
         btnC.style.border = "2px solid silver";
         btnD.style.border = "2px solid silver";
         break;
       case "c": 
-        btnC.style.border = "3px solid green";
+        btnC.style.border = "3px solid #f4a232";
         btnA.style.border = "2px solid silver";
         btnB.style.border = "2px solid silver";
         btnD.style.border = "2px solid silver";
         break;
       case "d": 
-        btnD.style.border = "3px solid green";
+        btnD.style.border = "3px solid #f4a232";
         btnA.style.border = "2px solid silver";
         btnB.style.border = "2px solid silver";
         btnC.style.border = "2px solid silver";
@@ -121,7 +123,7 @@ class TestMath extends Component {
     btnD.style.border = "2px solid silver";
 
     if(LocalUser.LastTest.Answers[e.target.id] !== "") {
-      document.getElementById(LocalUser.LastTest.Answers[e.target.id]).style.border = "3px solid green";
+      document.getElementById(LocalUser.LastTest.Answers[e.target.id]).style.border = "3px solid #f4a232";
     }
 
   }
@@ -222,6 +224,7 @@ class TestMath extends Component {
       if(LocalUser.LastTest.Questions[i]["rightAnswer"] === LocalUser.LastTest.Answers[(i + 1).toString()]) {
         historyObj.rightAnswers++;
         historyObj.points += 5;
+        LocalUser.LastTest.Answers[(i + 1).toString()] = "";
       }
     }
 
