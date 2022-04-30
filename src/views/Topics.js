@@ -16,9 +16,9 @@ const Topics = () => {
         <h2 className="title">ТЕСТОВЕ</h2>
   
         <ul id="test-links" className="tests-wrapper">
-          {/* <li className="test-title">
+          <li className="test-title">
             <Link to={`${match.url}/math-4`}>Математика - 4. клас</Link>
-          </li> */}
+          </li>
           <li className="test-title">
             <Link to={`${match.url}/math-7`}>Математика - 7. клас</Link>
           </li>

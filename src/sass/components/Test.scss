@@ -1,0 +1,58 @@
+#app-wrapper .main-content .view-wrapper { 
+    .math-test {
+        background-color: white;
+        nav .question-btn, #start-btn, #finish-btn {
+            color: white;
+            font-weight: bolder;
+        }
+
+        #start-btn, #finish-btn {
+            width: 90px;
+            height: 30px;
+            border: 1px solid silver;
+            border-radius: 15px;
+        }
+
+        h3 {
+            #start-btn {
+                background-color: $green;
+            }
+            #finish-btn {
+                background-color: $red;
+            }
+        }
+
+        h3.time {
+            padding-left: 30px;
+        }
+
+        nav .question-btn {
+            width: 35px;
+            background-color: $light-blue;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .questions-wrapper {
+            .answers {
+                .answers-wrapper {
+                    padding: 5px;
+
+                    .answer-btn {
+                        border: 2px solid silver;
+                        border-radius: 20px;
+                        margin: 0 5px 0 5px;
+                        font-size: 1.1em;
+                        font-weight: bolder;
+                        color: $light-blue;
+
+                        &:hover {
+                            background-color: rgba(73,104,142, 0.2);
+                        }
+                    }
+                }
+            }  
+        }
+    }
+}

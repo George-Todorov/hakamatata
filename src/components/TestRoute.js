@@ -6,6 +6,7 @@ const TestMathObj = {
     startTime: "",
     endTime: "",
     questionsCount: 20,
+    answersCount: 4,
     questionList: [
     ],
 }
@@ -36,7 +37,9 @@ const TestRoute = test => {
     switch (test) {
         case "math-4":
             SetQuestions(4);
-            TestMathObj["name"] = "Математика - 4. клас"
+            TestMathObj["name"] = "Математика - 4. клас";
+            TestMathObj.answersCount = 3;
+
             return (
                 <main className="math-test-wrapper">
                     <TestMath testObj={TestMathObj} />
@@ -45,6 +48,7 @@ const TestRoute = test => {
         case "math-7":
             SetQuestions(7);
             TestMathObj["name"] = "Математика - 7. клас"
+            TestMathObj.answersCount = 4;
             return (
                 <main className="math-test-wrapper">
                     <TestMath testObj={TestMathObj} />

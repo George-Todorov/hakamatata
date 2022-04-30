@@ -150,10 +150,10 @@ class TestMath extends Component {
         <div className="answers-wrapper container-flex-row">
           <button id="a" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>а</button>
           <button id="b" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>б</button>
-        {/* </div>
-        <div className="answers-wrapper container-flex-row"> */}
           <button id="c" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>в</button>
-          <button id="d" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>г</button>
+          {this.props.testObj.answersCount === 4 ?
+          <button id="d" className="answer-btn flex-item-1" onClick={this.onAnswerClicked}>г</button> :
+          null}
         </div>
       </footer>
       <br />
@@ -228,6 +228,16 @@ class TestMath extends Component {
       }
     }
 
+    // if(LocalUser.History.length > 3) {
+    //   for(let i = 0; i < LocalUser.History.length - 1; i++ ) {
+    //     LocalUser.History[i] = LocalUser.History[i+1];
+    //   }
+    //   LocalUser.History[2] = historyObj;
+    // } 
+    // else {
+    //   LocalUser.History.push(historyObj);
+    // }
+    
     LocalUser.History.push(historyObj);
     localStorage.setItem("hakamatata-user", JSON.stringify(LocalUser));
 
@@ -239,6 +249,7 @@ class TestMath extends Component {
 
     document.getElementById("main-nav").style.display = "inherit";
     document.getElementById("test-links").style.display = "inherit";
+    
     this.props.history.push('/results');
   }
 
@@ -253,14 +264,14 @@ class TestMath extends Component {
         <h3>100 възможни точки общо</h3>
       
         <header className="timer container-flex-row">
-          <h3 className="flex-item-6">
+          <h3 className="time flex-item-6">
             {
               !this.state.isTestStarted ? 
               <button className="test-btn" id="start-btn" onClick={this.startTest}>НАЧАЛО</button> : 
               <button className="test-btn" id="finish-btn" onClick={this.finishTest}>КРАЙ</button>
             }
           </h3>
-          <h3 className="flex-item-1" style={{padding: "30px"}}>
+          <h3 className="time flex-item-1" style={{padding: "30px"}}>
             <CountdownCircleTimer
               isPlaying={this.state.isTestStarted}
               duration={this.num*this.num}

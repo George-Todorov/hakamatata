@@ -1,0 +1,44 @@
+#app-wrapper .main-content .view-wrapper { 
+  .history {
+    color: $dark-blue;
+    font-weight: bolder;
+
+    article {
+      @include linear-gradient(rgb(255, 239, 210), #cfdae8, 50); //rgb(232, 189, 110), 50)
+      opacity: 0.8;
+      padding-bottom: 2px;
+      border-radius: 7px;
+
+      h3 {
+        border-bottom: 2px solid white;
+        padding: 7px 0 7px 0;
+
+        .close {
+          position: relative;
+          right: -22px;
+          top: -2px;
+          width: 22px;
+          height: 22px;
+          opacity: 0.7;
+        }
+        .close:hover {
+          opacity: 1;
+        }
+        .close:before, .close:after {
+          position: absolute;
+          left: 15px;
+          content: ' ';
+          height: 15px;
+          width: 4px;
+          background-color: $light-blue;
+        }
+        .close:before {
+          transform: rotate(45deg);
+        }
+        .close:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

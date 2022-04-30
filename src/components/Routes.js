@@ -26,7 +26,7 @@ const Routes = () => {
           <img src={NaturalNumbers} alt="Natural Numbers" width="98%" height="460px" />
         </Route>
         <Route path="/nvo-math-4">
-          <iframe src={NVO4} width="99%" height="460px" />
+          <iframe src={NVO4} width="99%" height="460px" frameborder="0" allowFullScreen />
         </Route>
 
         // 7.
@@ -34,7 +34,7 @@ const Routes = () => {
           <img src={Formula} alt="Formula" width="98%" />
         </Route>
         <Route path="/nvo-math-7">
-          <iframe src={NVO7} width="99%" />
+          <iframe src={NVO7} width="99%" height="460px" frameborder="0" allowFullScreen />
         </Route>
         <Route path="/">
           <Home />
