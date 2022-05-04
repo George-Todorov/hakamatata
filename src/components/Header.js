@@ -8,7 +8,7 @@ const Header = () => {
 
       </section>
       <section className="logo flex-item-1">
-        <img src={Logo} alt="Logo" width="65px"/>
+        <img src={Logo} alt="Logo" width="70px"/>
       </section>
       <section className="flex-item-2">
         

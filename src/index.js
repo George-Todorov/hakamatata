@@ -1,7 +1,7 @@
 import React from "react";
+import {hydrate, render} from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
-import {hydrate, render} from 'react-dom';
 import {HashRouter as Router} from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -21,14 +21,14 @@ const main = () => {
             <Router>
               <App />
             </Router>
-        </Provider>
+         </Provider>
 }
 
 if (wrapper.hasChildNodes()) {
   hydrate(
     main(),
     wrapper 
-  );s
+  );
 } else {
   render(
     main(),

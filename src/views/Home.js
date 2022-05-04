@@ -1,10 +1,14 @@
 import React from "react";
+import MathIcon from "../assets/calculating.png";
 import JsonTree from "../components/JsonTree";
 import { MathData } from "../data/MathData";
 
 const Home = () => {
     return <main className="view-wrapper">
-        <h2 className="title">УРОЦИ</h2>
+        <h2 className="title">
+            МАТЕМАТИКА
+            {/* <img src={MathIcon} alt="icon" width="40px"/> */}
+        </h2>
         <section className="lessons-wrapper">
             <JsonTree dataJson={MathData} hasParent={true}/>
         </section>

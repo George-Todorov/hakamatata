@@ -10,16 +10,31 @@
             text-align: left;
         }
 
+        .title {
+            font-size: 36px;
+            text-shadow: 2px 2px 5px $orange;
+            text-shadow: 2px 2px 3px #f8b75c, -1px -1px 5px $orange;
+
+            img {
+                float: left;
+            }
+        }
+
         .mon {
             margin-left: 35px;
         }
 
+        .lessons-wrapper, .tests-wrapper {
+            font-size: 18px;
+        }
+
         .lessons-wrapper {
-            padding-left: 12px;
+            padding-left: 11px;
+            margin-top: -3px;
         }
 
         .tests-wrapper {
-            padding-left: 41px;
+            padding-left: 33px;
         }
     }
 }

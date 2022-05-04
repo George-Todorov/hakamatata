@@ -1,4 +1,12 @@
-#app-wrapper .main-content .view-wrapper { 
+#app-wrapper .main-content .view-wrapper {
+    .title {
+        // background-color: $light;
+        // margin-top: -17px;
+        // padding: 7px 0 7px 0;
+        // font-size: 24px;
+        // font-weight: bolder;
+    } 
+
     .math-test {
         background-color: white;
         nav .question-btn, #start-btn, #finish-btn {

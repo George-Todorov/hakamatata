@@ -83,19 +83,25 @@ class TestMath extends Component {
         btnA.style.border = "3px solid #f4a232";
         btnB.style.border = "2px solid silver";
         btnC.style.border = "2px solid silver";
-        btnD.style.border = "2px solid silver";
+        if(btnD) {
+          btnD.style.border = "2px solid silver";
+        }
         break;
       case "b": 
         btnB.style.border = "3px solid #f4a232";
         btnA.style.border = "2px solid silver";
         btnC.style.border = "2px solid silver";
-        btnD.style.border = "2px solid silver";
+        if(btnD) {
+          btnD.style.border = "2px solid silver";
+        }
         break;
       case "c": 
         btnC.style.border = "3px solid #f4a232";
         btnA.style.border = "2px solid silver";
         btnB.style.border = "2px solid silver";
-        btnD.style.border = "2px solid silver";
+        if(btnD) {
+          btnD.style.border = "2px solid silver";
+        }
         break;
       case "d": 
         btnD.style.border = "3px solid #f4a232";
@@ -120,7 +126,9 @@ class TestMath extends Component {
     btnA.style.border = "2px solid silver";
     btnB.style.border = "2px solid silver";
     btnC.style.border = "2px solid silver";
-    btnD.style.border = "2px solid silver";
+    if(btnD) {
+      btnD.style.border = "2px solid silver";
+    }
 
     if(LocalUser.LastTest.Answers[e.target.id] !== "") {
       document.getElementById(LocalUser.LastTest.Answers[e.target.id]).style.border = "3px solid #f4a232";
@@ -182,23 +190,6 @@ class TestMath extends Component {
 
     document.getElementById("main-nav").style.display = "none";
     document.getElementById("test-links").style.display = "none";
-
-    setInterval(() => {
-      sec--;
-
-      if(min == 0 && sec == 1) {
-        this.finishTest();
-      }
-      if(sec < 0) {
-        sec = this.num - 1;
-        min--;
-      }
-
-      this.setState({
-        min,
-        sec
-      })
-    }, 1000);
   }
 
   finishTest() {
@@ -227,16 +218,6 @@ class TestMath extends Component {
         LocalUser.LastTest.Answers[(i + 1).toString()] = "";
       }
     }
-
-    // if(LocalUser.History.length > 3) {
-    //   for(let i = 0; i < LocalUser.History.length - 1; i++ ) {
-    //     LocalUser.History[i] = LocalUser.History[i+1];
-    //   }
-    //   LocalUser.History[2] = historyObj;
-    // } 
-    // else {
-    //   LocalUser.History.push(historyObj);
-    // }
     
     LocalUser.History.push(historyObj);
     localStorage.setItem("hakamatata-user", JSON.stringify(LocalUser));
@@ -249,6 +230,8 @@ class TestMath extends Component {
 
     document.getElementById("main-nav").style.display = "inherit";
     document.getElementById("test-links").style.display = "inherit";
+    document.getElementById("tests-link").style.color = "#e6e8ee";
+    document.getElementById("results-link").style.color = "#f4a232";
     
     this.props.history.push('/results');
   }

@@ -2,6 +2,9 @@
     background-color: $light-blue;
     
     ul {  
+        padding-top: 3px;
+        padding-bottom: 3px;
+        
         .nav-link {
             color: $light;
             text-align: center;

@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "../views/Home";
 import Topics from "../views/Topics";
 import Results from "../views/Results";
+import Job from "../components/Job";
 
 import NVO4 from "../assets/pdf/NVO_IV_MAT_Model.pdf";
 import NVO7 from "../assets/pdf/NVO_VII_MAT_Model.pdf";
@@ -19,6 +20,9 @@ const Routes = () => {
         </Route>
         <Route path="/results">
           <Results />
+        </Route>
+        <Route path="/inprocess">
+          <Job />
         </Route>
 
         // 4. 

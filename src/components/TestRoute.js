@@ -1,5 +1,6 @@
 import React from "react";
 import TestMath from "./TestMath";
+import Job from "./Job";
 import { TaskData } from "../data/tasks/TaskData";
 
 const TestMathObj = {
@@ -35,6 +36,12 @@ const SetQuestions = (num) => {
 
 const TestRoute = test => {
     switch (test) {
+        case "math-1": 
+            return (<Job />);
+        case "math-2": 
+            return (<Job />);
+        case "math-3": 
+            return (<Job />);
         case "math-4":
             SetQuestions(4);
             TestMathObj["name"] = "Математика - 4. клас";
@@ -45,6 +52,10 @@ const TestRoute = test => {
                     <TestMath testObj={TestMathObj} />
                 </main>
             );
+        case "math-5": 
+            return (<Job />);
+        case "math-6": 
+            return (<Job />);
         case "math-7":
             SetQuestions(7);
             TestMathObj["name"] = "Математика - 7. клас"
