@@ -5,11 +5,12 @@
     text-align: center;
 
     .paginator ul {
+      margin-left: -32px;
       li {
         display: inline-block;
         text-align: center;
         width: 24px;
-        margin: 0 0 0 5px;
+        margin-right: 5px;
         border: 1px solid $orange;
         border-radius: 50%;
         background-color: $light;

@@ -1,5 +1,16 @@
 #app-wrapper .main-content { 
-    min-height: 500px;  
+    min-height: 500px; 
+
+    .job {
+        text-align: center;
+
+        .counter {
+            position: relative;
+            color: $orange;
+            font-size: 22px;
+            font-weight: bolder;
+        }
+    } 
 
     .view-wrapper {
         * {
