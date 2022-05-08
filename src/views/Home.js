@@ -15,7 +15,7 @@ const Home = () => {
             <title>zita-math</title>
         </Helmet>
         <h4 className="info">
-        Образователен <span className="shadowed">ЦЕНТЪР ЗИТА</span> предлага подготовка по <span className="shadowed">МАТЕМАТИКА</span> за <span className="shadowed">НВО</span> след седми клас, както и помощ в усвояването на математиката за всички, които имат нужда.
+        Образователен <span className="shadowed">ЦЕНТЪР ЗИТА</span> предлага подготовка по <span className="shadowed">МАТЕМАТИКА</span> за <span className="shadowed">НВО</span> след седми клас, както и помощ в усвояването на математиката за ученици, които имат нужда.
         </h4>
         <img src={Zita} alt="ZITA" width="100%"/>
 
