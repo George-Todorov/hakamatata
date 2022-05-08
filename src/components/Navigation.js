@@ -16,12 +16,12 @@ const Navigation = () => {
         <ul className="container-flex-row">
             <li className="flex-item-1">
                 <Link id="lessons-link" to="/" className="flex-item-1 nav-link" onClick={changeLink}>
-                    УРОЦИ
+                    ИНФО
                 </Link>
             </li>
             <li className="flex-item-1">
                 <Link id="tests-link" to="/topics" className="flex-item-1 nav-link" onClick={changeLink}>
-                    ТЕСТОВЕ
+                    ТЕСТ
                 </Link>
             </li>
             <li className="flex-item-1">

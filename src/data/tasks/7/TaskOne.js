@@ -9,14 +9,14 @@ export const TaskOne =  [
         "rightAnswer": "d",
         "userAnswer": ""
     },
-    // {
-    //     "number": 1,
-    //     "taskImage": OneTwo,
-    //     "rightAnswer": "b"
-    // },
-    // {
-    //     "number": 1,
-    //     "taskImage": OneThree,
-    //     "rightAnswer": "b"
-    // },
+    {
+        "number": 1,
+        "taskImage": OneTwo,
+        "rightAnswer": "b"
+    },
+    {
+        "number": 1,
+        "taskImage": OneThree,
+        "rightAnswer": "a"
+    },
 ];

@@ -1,6 +1,13 @@
 #app-wrapper .header {
-    //background-color: $main-bg;
-    // border-bottom: 5px solid $dark-blue;
     padding-top: 1px;
-    height: 48px;
+    height: 64px;
+    border-bottom: 5px solid $light-blue;
+
+    .title {
+        font-size: 39px;
+        text-shadow: 2px 2px 5px $orange;
+        text-shadow: 2px 2px 3px #f8b75c, -1px -1px 5px $orange;
+        margin-top: 16px;
+        padding: 0 0 0 11px;
+    }
 }

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import {Helmet} from "react-helmet";
 import Paginator from "../components/Paginator";
+import JobImg from "../assets/job.gif";
 
 const Results = () => {
     const [sec, setSec] = useState(5);
@@ -12,15 +14,22 @@ const Results = () => {
     }
 
     return <main className="view-wrapper">
-        <main className="history">
-            {
-                getHistory().length == 0 ? 
-                "Няма намерени резултати" : 
-                Paginator({ items: getHistory(), itemsPerPage: 3 })
-            }
-            <br />
-        </main>
-    </main>;
+                <Helmet>
+                    <title>zita-math-test-results</title>
+                </Helmet>
+                <main className="history">
+                    {
+                        getHistory().length == 0 ? 
+                        <div>
+                            <h2>Няма намерени резултати</h2>
+                            <br />
+                            <img src={JobImg} alt="job" width="100%"/>
+                        </div> : 
+                        Paginator({ items: getHistory(), itemsPerPage: 3 })
+                    }
+                    <br />
+                </main>
+            </main>;
 }
 
 export default Results;

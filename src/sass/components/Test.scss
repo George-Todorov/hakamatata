@@ -1,11 +1,4 @@
 #app-wrapper .main-content .view-wrapper {
-    .title {
-        // background-color: $light;
-        // margin-top: -17px;
-        // padding: 7px 0 7px 0;
-        // font-size: 24px;
-        // font-weight: bolder;
-    } 
 
     .math-test {
         background-color: white;
@@ -30,6 +23,10 @@
             }
         }
 
+        .timer {
+            margin-top: -15px;
+        }
+
         h3.time {
             padding-left: 30px;
         }
@@ -43,6 +40,8 @@
         }
 
         .questions-wrapper {
+            margin-top: -24px;
+
             .answers {
                 .answers-wrapper {
                     padding: 5px;

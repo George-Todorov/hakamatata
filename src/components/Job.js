@@ -12,8 +12,13 @@ const Job = () => {
       setCount(count - 1);
       
       if(count < 1) {
-        if(location.hash.includes("topics")) {
-          history.push('/topics/math-4');
+        if(location.hash.includes("math")) {
+          if(+location.hash[location.hash.length - 1] < 4) {
+            history.push('/topics/math-4');
+          }
+          else {
+            history.push('/topics/math-7');
+          }
         }
         else {
           history.push('/');

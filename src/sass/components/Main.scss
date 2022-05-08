@@ -21,16 +21,6 @@
             text-align: left;
         }
 
-        .title {
-            font-size: 36px;
-            text-shadow: 2px 2px 5px $orange;
-            text-shadow: 2px 2px 3px #f8b75c, -1px -1px 5px $orange;
-
-            img {
-                float: left;
-            }
-        }
-
         .mon {
             margin-left: 35px;
         }
@@ -46,6 +36,12 @@
 
         .tests-wrapper {
             padding-left: 33px;
+        }
+
+        .info {
+            .shadowed {
+                text-shadow: 1px 1px $orange;
+            }
         }
     }
 }

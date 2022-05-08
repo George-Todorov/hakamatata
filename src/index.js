@@ -14,7 +14,7 @@ import App from "./App";
 import './sass/index.scss';
 
 const store = configureStore();
-const wrapper = document.getElementById("container");
+const wrapper = document.getElementById("zita-math-container");
 
 const main = () => {
   return <Provider store={store}>

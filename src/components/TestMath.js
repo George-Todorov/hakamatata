@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as actionCreator from "../redux/actions";
 import { CountdownCircleTimer, useCountdown } from "react-countdown-circle-timer";
+import Tool from "../assets/calculating.png";
 
 const CurrentTest = {
   Name: "",
@@ -60,10 +61,16 @@ class TestMath extends Component {
     this.finishTest = this.finishTest.bind(this);
     this.onChangeQuestion = this.onChangeQuestion.bind(this);
     this.onAnswerClicked = this.onAnswerClicked.bind(this);
+    this.onToolClicked = this.onToolClicked.bind(this);
   }
 
   componentDidMount() {
     LocalUser.LastTest.Questions = this.props.testObj.questionList; 
+  }
+
+  onToolClicked(e) {
+    document.getElementById("tool").style.display = "inherit";
+    document.getElementById("close-tool").style.display = "inherit";
   }
 
   onAnswerClicked(e) {
@@ -148,6 +155,8 @@ class TestMath extends Component {
         })}
       </nav>
 
+      <br />
+
       <main className="current-question">
         <img src={this.props.testObj.questionList[this.state.currentQuestionNumber - 1].taskImage} alt={"Task-"+this.props.testObj.questionList[this.state.currentQuestionNumber - 1].number} width="340px"/>
         {/* <br /> */}
@@ -189,7 +198,7 @@ class TestMath extends Component {
     });
 
     document.getElementById("main-nav").style.display = "none";
-    document.getElementById("test-links").style.display = "none";
+    // document.getElementById("test-math").style.display = "none";
   }
 
   finishTest() {
@@ -215,8 +224,9 @@ class TestMath extends Component {
       if(LocalUser.LastTest.Questions[i]["rightAnswer"] === LocalUser.LastTest.Answers[(i + 1).toString()]) {
         historyObj.rightAnswers++;
         historyObj.points += 5;
-        LocalUser.LastTest.Answers[(i + 1).toString()] = "";
       }
+      
+      LocalUser.LastTest.Answers[(i + 1).toString()] = "";
     }
     
     LocalUser.History.push(historyObj);
@@ -229,7 +239,7 @@ class TestMath extends Component {
     });
 
     document.getElementById("main-nav").style.display = "inherit";
-    document.getElementById("test-links").style.display = "inherit";
+    // document.getElementById("test-math").style.display = "inherit";
     document.getElementById("tests-link").style.color = "#e6e8ee";
     document.getElementById("results-link").style.color = "#f4a232";
     
@@ -239,12 +249,10 @@ class TestMath extends Component {
   render() {
     return (
       <article className="math-test">
-        <hr /> 
-        
         <h2>{this.props.testObj.name}</h2>
         <h3>20 задачи за 60 минути</h3>
         <h3>5 точки за всеки верен отговор</h3>
-        <h3>100 възможни точки общо</h3>
+        <h3>100 точки общо</h3>
       
         <header className="timer container-flex-row">
           <h3 className="time flex-item-6">
@@ -253,6 +261,11 @@ class TestMath extends Component {
               <button className="test-btn" id="start-btn" onClick={this.startTest}>НАЧАЛО</button> : 
               <button className="test-btn" id="finish-btn" onClick={this.finishTest}>КРАЙ</button>
             }
+            <br />
+            <button style={{marginTop: "98px", width: "68px", borderRadius: "5px", backgroundColor: "rgb(255, 247, 232)"}}>
+              <label style={{fontWeight: "bolder"}}>помощ</label>
+              <img src={Tool} alt="tool" width="50px" height="50px" onClick={this.onToolClicked}/>
+            </button>
           </h3>
           <h3 className="time flex-item-1" style={{padding: "30px"}}>
             <CountdownCircleTimer
