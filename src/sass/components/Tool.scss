@@ -17,7 +17,7 @@ $w: 16px;
 
 #tool {
     display: none;
-    width: 360px;
+    width: 100%;
     height: 535px;
     background: white;
     position: absolute;
@@ -45,6 +45,10 @@ $w: 16px;
 }
 
 @media (min-width: 460px) {
+    #tool {
+        width: 360px;
+    }
+
     #close-tool {
         left: calc(36% + 293px);
     }

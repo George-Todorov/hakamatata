@@ -13,12 +13,10 @@ const Tool = () => {
   return (
     <>
     <div id="tool">
-        <div className="tools">
-          <br />
-          <img src={Tool1} alt="tool" width="100%" />
-          <img src={Tool2} alt="tool" width="100%" />
-          <img src={Tool3} alt="tool" width="100%" />
-        </div>
+      <br />
+      <img src={Tool1} alt="tool" width="100%" />
+      <img src={Tool2} alt="tool" width="100%" />
+      <img src={Tool3} alt="tool" width="100%" />
     </div>
     <span id="close-tool" className="close" onClick={onToolClose}>X</span>
     </>
