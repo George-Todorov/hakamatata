@@ -16,8 +16,7 @@ iframe::-webkit-scrollbar-track {
 body {
     margin: 0;
     padding: 0;
-    //background-color: $body-bg;
-    background-color: $main-bg;;
+    background-color: $main-bg;
     font-family: sans-serif;
     color: $dark-blue;
 
@@ -29,7 +28,7 @@ body {
         width: 98%;
     }
     
-    a, span {
+    a, span.nav-link {
         text-decoration: none;
         overflow: hidden;
         color: $dark-blue;
@@ -46,7 +45,8 @@ body {
 }
 
 @media (min-width: 540px) {
-   body {
-    padding: 0 0 0 35%;
-   }
+
+    body #zita-math-container {
+        padding: 0 0 0 35%;
+    }
 }

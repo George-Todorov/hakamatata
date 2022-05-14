@@ -1,4 +1,5 @@
 #app-wrapper .header {
+    background-color: $light;
     padding-top: 1px;
     height: 64px;
     border-bottom: 5px solid $light-blue;
@@ -9,5 +10,6 @@
         text-shadow: 2px 2px 3px #f8b75c, -1px -1px 5px $orange;
         margin-top: 16px;
         padding: 0 0 0 11px;
+        // text-align: center;
     }
 }
