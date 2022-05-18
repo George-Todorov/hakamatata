@@ -4,8 +4,6 @@ import Paginator from "../components/Paginator";
 import JobImg from "../assets/job.gif";
 
 const Results = () => {
-    const [sec, setSec] = useState(5);
-
     const getHistory = () => {
         if(localStorage.getItem("hakamatata-user")) {
             return JSON.parse(localStorage.getItem("hakamatata-user")).History.reverse().slice(0, 24);
@@ -15,7 +13,9 @@ const Results = () => {
 
     return <main className="view-wrapper">
                 <Helmet>
-                    <title>zita-math-test-results</title>
+                    <meta charset="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <title>ЦЕНТЪР ЗИТА - Математика - Резултати</title>
                 </Helmet>
                 <main className="history">
                     {

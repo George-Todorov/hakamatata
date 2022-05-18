@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 // import JsonTree from "../components/JsonTree";
 // import { MathData } from "../data/MathData";
 import Zita from "../assets/zita1.jpg";
+import Ico from "../assets/icon.png";
 
 const Home = () => {
     useEffect(() => {
@@ -12,7 +13,10 @@ const Home = () => {
 
     return <main className="view-wrapper">
         <Helmet>
-            <title>zita-math</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href={Ico} />
+            <title>ЦЕНТЪР ЗИТА - Математика</title>
         </Helmet>
         <h4 className="info">
         Образователен <span className="shadowed">ЦЕНТЪР ЗИТА</span> предлага подготовка 
@@ -30,7 +34,7 @@ const Home = () => {
             <br />
             <br />
             Изисквания на&nbsp; 
-            <span className="shadowed"><a href="https://mon.bg/bg/26" target="_blank">mon.bg</a></span>
+            <span className="shadowed-rev"><a href="https://mon.bg/bg/26" target="_blank">mon.bg</a></span>
         </h4>
             <br />
         

@@ -10,12 +10,12 @@ function Items({ currentItems }) {
                 return <article id={"result-" + i} key={i}>
                     <h3>
                         {"Тест по " + item.name}
-                        {/* <span className={"close " + i} title="delete" onClick={deleteTestResult}></span> */}
                     </h3>
                     <h4>{"Дата : " + new Date(item.date).toLocaleDateString("en-US") + ", " + item.startTime + " часа"}</h4>
                     <h4>{"Времетраене : " + Math.floor(item.time/1000/60) + " мин"}</h4>
                     <h4>{"Верни отговори : " + item.rightAnswers + " / 20"}</h4>
                     <h4>{"Точки : " + item.points + " / 100"}</h4>
+                    <h4>{item.evaluation ? "Оценка : " + item.evalText + " (" + item.evaluation + ")" : null}</h4>
                 </article>
             }
         })}

@@ -217,7 +217,9 @@ class TestMath extends Component {
       LocalUser.LastTest.StartedTime.getMinutes()),
       time: LocalUser.LastTest.FinishedTime - LocalUser.LastTest.StartedTime,
       rightAnswers: 0,
-      points: 0
+      points: 0,
+      evaluation: 2,
+      evalText: "слаб"
     }
 
     for (let i = 0; i < 20; i++) {
@@ -227,6 +229,31 @@ class TestMath extends Component {
       }
       
       LocalUser.LastTest.Answers[(i + 1).toString()] = "";
+    }
+ 
+    if(historyObj.points >= 20 && historyObj.points < 30) {
+      historyObj.evaluation = 3;
+      historyObj.evalText = "среден"
+    }
+    else if(historyObj.points >= 30 && historyObj.points < 45) {
+      historyObj.evaluation = 3.5;
+      historyObj.evalText = "добър"
+    }
+    else if(historyObj.points >= 45 && historyObj.points < 60) {
+      historyObj.evaluation = 4;
+      historyObj.evalText = "добър"
+    }
+    else if(historyObj.points >= 60 && historyObj.points < 70) {
+      historyObj.evaluation = 4.5;
+      historyObj.evalText = "много добър"
+    }
+    else if(historyObj.points >= 70 && historyObj.points < 85) {
+      historyObj.evaluation = 5;
+      historyObj.evalText = "много добър"
+    }
+    else if(historyObj.points >= 85) {
+      historyObj.evaluation = 6;
+      historyObj.evalText = "отличен"
     }
     
     LocalUser.History.push(historyObj);

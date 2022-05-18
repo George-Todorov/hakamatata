@@ -9,19 +9,19 @@
         padding-top: 5px;
         font-size: 1.1em;
 
-        span, a {
-            float: right;
-            margin-right: 2px;
-            font-weight: bolder;
-        }
-
         img {
             position: relative;
-            left: 59px;
+            top: 2px;
         }
 
         .phone-number {
             font-size: 0.9em;
+        }
+
+        span, a {
+            float: right;
+            margin-right: 4px;
+            font-weight: bolder;
         }
     }
 }

@@ -42,6 +42,17 @@
             .shadowed {
                 text-shadow: 1px 1px $orange;
             }
+
+            .shadowed-rev {
+                text-shadow: 1px 2px $dark-blue;
+                a {
+                    color: $orange;
+                
+                    &:hover {
+                        text-shadow: none;
+                    }
+                }
+            }
         }
     }
 }

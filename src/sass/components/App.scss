@@ -1,13 +1,12 @@
 #app-wrapper {
     background-color: white;
-    padding: 4px;
     width: 100%;
     min-height: 740px; 
-    box-shadow: 2px 2px 2px 2px grey;
 }
 
 @media (min-width: 460px) {
     #app-wrapper {
         width: 360px; //60%;
+        box-shadow: 2px 2px 2px 2px grey;
     }
 }

@@ -21,7 +21,7 @@ $w: 16px;
     height: 535px;
     background: white;
     position: absolute;
-    top: 80px;
+    top: 76px;
     border-bottom: 4px solid $orange;
     overflow: auto;
 }
@@ -29,19 +29,34 @@ $w: 16px;
 #close-tool {
     display: none;
     position: absolute;
-    text-align: center;
     top: 90px;
     right: 20px;
     width: 24px;
     height: 24px;
+    text-align: center;
     font-size: 22px;
     color: $orange;
-    padding: 0 0 2px 2px;
     text-shadow: -1px 1px $light-blue;
-    border: 3px solid $dark-blue;
+    border: 4px solid $dark-blue;
     border-radius: 50%;
     font-weight: bolder;
     cursor: pointer;
+}
+
+#close-tool:before, #close-tool:after {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    content: ' ';
+    height: 20px;
+    width: 4px;
+    background-color: $orange;
+}
+#close-tool:before {
+    transform: rotate(45deg);
+}
+#close-tool:after {
+    transform: rotate(-45deg);
 }
 
 @media (min-width: 460px) {

@@ -18,7 +18,7 @@ const Tool = () => {
       <img src={Tool2} alt="tool" width="100%" />
       <img src={Tool3} alt="tool" width="100%" />
     </div>
-    <span id="close-tool" className="close" onClick={onToolClose}>X</span>
+    <span id="close-tool" className="close" onClick={onToolClose}></span>
     </>
   );
 }

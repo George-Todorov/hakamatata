@@ -16,7 +16,9 @@ const Topics = () => {
   return (
     <main className="view-wrapper">
       <Helmet>
-        <title>zita-math-test</title>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>ЦЕНТЪР ЗИТА - Математика - Тест</title>
       </Helmet>
       <div id="test-math" >
         {TestRoute("math-7")}
